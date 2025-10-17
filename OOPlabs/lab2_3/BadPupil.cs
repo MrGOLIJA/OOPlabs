@@ -6,12 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOPlabs.lab2_3
 {
-    public class ClassRoom
+    sealed public class BadPupil : Pupil
     {
-        private Pupil[] pupils;
-        public ClassRoom(Pupil[] pupils)
-        {
-            this.pupils = pupils;
-        }
     }
 }
