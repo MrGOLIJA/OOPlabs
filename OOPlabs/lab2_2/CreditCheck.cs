@@ -11,16 +11,19 @@ namespace OOPlabs.lab2
         public CreditCheck(int balance)
         {
             this.balance = balance;
+            TotalBalance += balance;
         }
         override public void addMoney(int amount)
         {
             this.balance += amount;
+            TotalBalance += amount;
         }
         override public void removeMoney(int amount)
         {
             if (amount < 30000)
             {
                 this.balance -= amount;
+                TotalBalance -= amount;
             }
             else
             {

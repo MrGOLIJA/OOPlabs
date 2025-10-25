@@ -11,15 +11,18 @@ namespace OOPlabs.lab2
         public CurrentCheck(int balance)
         {
             this.balance = balance;
+            TotalBalance += balance;
         }
         override public void addMoney(int amount)
         {
+            TotalBalance += amount;
             this.balance += amount;
         }
         override public void removeMoney(int amount) 
         { 
-            if(this.balance>amount && amount < 30000)
+            if(this.balance>=amount && amount <= 30000)
             {
+                TotalBalance -= amount;
                 this.balance -= amount;
             }
             else

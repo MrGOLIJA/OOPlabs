@@ -34,7 +34,6 @@ namespace OOPlabs.lab2
             if (currCheck.Balance > amount && amount < 30000)
             {
                 currCheck.removeMoney(amount);
-                card.TotalBalance -= amount;
             }
             else
             {
@@ -43,12 +42,11 @@ namespace OOPlabs.lab2
         }
         public void withdrawCheck(int amount, DebitCheck debCheck)
         {
-            if (card.CreditCheck.Balance > 20000)
+            if (card.CreditCheck.Balance < -20000)
             {
                 if (card.Current.Balance > amount && amount < 30000)
                 {
                     card.Current.removeMoney(amount);
-                    card.TotalBalance -= amount;
                 }
                 else
                 {
@@ -65,7 +63,6 @@ namespace OOPlabs.lab2
             if (amount < 30000)
             {
                 credCheck.removeMoney(amount);
-                card.TotalBalance -= amount;
             }
             else
             {
@@ -79,7 +76,6 @@ namespace OOPlabs.lab2
             {
                 check.addMoney(amount);
                 card.DebitCheck.addMoney(2000);
-                card.TotalBalance += amount + 2000;
             }
             else if (check is DebitCheck && card.CreditCheck.Balance < -20000)
             {
@@ -89,7 +85,6 @@ namespace OOPlabs.lab2
             else
             {
                 check.addMoney(amount);
-                card.TotalBalance += amount;
             }
         }
     }

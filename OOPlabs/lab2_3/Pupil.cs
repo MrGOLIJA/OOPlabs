@@ -8,9 +8,14 @@ namespace OOPlabs.lab2_3
 {
     public class Pupil
     {
-        virtual protected void Study() { }
-        virtual protected void Read() { }
-        virtual protected void Write() { }
-        virtual protected void Relax() { }
+        protected int CurrentGrade;
+        virtual public void Study() { }
+        virtual public void Read() { }
+        virtual public void Write() { }
+        virtual public void Relax() { }
+        virtual public int GetCurrentGrade() {
+            Random rand = new Random();
+            return rand.Next(2,5);
+        }
     }
 }

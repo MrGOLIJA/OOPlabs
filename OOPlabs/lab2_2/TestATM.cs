@@ -13,13 +13,15 @@ namespace OOPlabs.lab2
             Assert.That(debitCheck.Balance, Is.EqualTo(70000));
         }
         [Test]
-        public void addInCreditCheck() {
+        public void addInCreditCheck()
+        {
             CreditCheck creditCheck = new CreditCheck(50000);
             creditCheck.addMoney(20000);
             Assert.That(creditCheck.Balance, Is.EqualTo(70000));
         }
         [Test]
-        public void addInCurrentCheck() {
+        public void addInCurrentCheck()
+        {
             CurrentCheck currentCheck = new CurrentCheck(50000);
             currentCheck.addMoney(20000);
             Assert.That(currentCheck.Balance, Is.EqualTo(70000));
@@ -39,7 +41,8 @@ namespace OOPlabs.lab2
             Assert.That(creditCheck.Balance, Is.EqualTo(25000));
         }
         [Test]
-        public void removeInCurrentCheck() {
+        public void removeInCurrentCheck()
+        {
             CurrentCheck currentCheck = new CurrentCheck(50000);
             currentCheck.removeMoney(25000);
             Assert.That(currentCheck.Balance, Is.EqualTo(25000));
@@ -60,7 +63,7 @@ namespace OOPlabs.lab2
         [Test]
         public void noDebitWhenCredit()
         {
-            Card card = new Card(20000,-300000,50000);
+            Card card = new Card(20000, -300000, 50000);
             ATM atm = new ATM(card);
             atm.replenishCheck(20000, card.DebitCheck);
             Assert.That(card.DebitCheck.Balance, Is.EqualTo(50000));
@@ -68,9 +71,9 @@ namespace OOPlabs.lab2
         [Test]
         public void autoAddInDebit()
         {
-            Card card = new Card(20000,20000,20000);
+            Card card = new Card(20000, 20000, 20000);
             ATM ATM = new ATM(card);
-            ATM.replenishCheck(1000000,card.Current);
+            ATM.replenishCheck(1000000, card.Current);
             Assert.That(card.DebitCheck.Balance, Is.EqualTo(22000));
         }
         [Test]
@@ -78,7 +81,7 @@ namespace OOPlabs.lab2
         {
             Card card = new Card(20000, 20000, 20000);
             ATM atm = new ATM(card);
-            atm.transfer(15000,card.DebitCheck, card.Current);
+            atm.transfer(15000, card.DebitCheck, card.Current);
             Assert.That(card.DebitCheck.Balance, Is.EqualTo(5000));
             Assert.That(card.Current.Balance, Is.EqualTo(35000));
         }

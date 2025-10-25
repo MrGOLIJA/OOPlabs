@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,24 @@ namespace OOPlabs.lab2_3
 {
     public class ClassRoom
     {
-        private Pupil[] pupils;
-        public ClassRoom(Pupil[] pupils)
+        private static int countPupil;
+        private ArrayList Pupils = new ArrayList();
+        public double GetRoundGrade()
         {
-            this.pupils = pupils;
+            int TotalGrade = 0;
+            foreach (Pupil p in Pupils)
+            {
+                TotalGrade += p.GetCurrentGrade();
+            }
+            return (double)TotalGrade/countPupil;
+        }
+        public ClassRoom(params Pupil[] pupils )
+        {
+            foreach( Pupil p in pupils)
+            {
+                countPupil++;
+                Pupils.Add(p);
+            }
         }
     }
 }
