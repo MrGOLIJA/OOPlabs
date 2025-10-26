@@ -362,3 +362,4 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /OOPlabs/lab2_4
+/OOPlabs/OOPlabs.csproj
